@@ -10,6 +10,13 @@
 - belongs_to :group
 - belongs_to :user
 
+#### userテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+|email|text|
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

@@ -9,7 +9,6 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
-- has_many :messages
 
 ## usersテーブル
 
@@ -39,17 +38,15 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|messages|text|null: false|
+|body|text|
 |image|text|
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
-|groups_user|references|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :groups
 - belongs_to :users
-- belongs_to :groups_users
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

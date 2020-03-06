@@ -3,39 +3,53 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
 - belongs_to :user
+- has_many :messages
 
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|text|null: false, index: true|
 |email|text|null: false|
 |encrypted_password|text|null: false|
-|group_user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :groups_users
 - has_many :groups, through: :groups_users
+- has_many :messages
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|text|null: false|
-|add_member|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_user_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
 - has_many :groups_users
 - has_many :users, throught: :groups_users
+- has_many :messages
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|messages|text|null: false|
+|image|text|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
+|groups_user|references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :groups
+- belongs_to :users
+- belongs_to :groups_users
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

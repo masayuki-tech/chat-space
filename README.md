@@ -10,7 +10,7 @@
 - belongs_to :group
 - belongs_to :user
 
-#### usersテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -20,11 +20,11 @@
 |group_user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-##### Association
+### Association
 - has_many :groups_users
 - has_many :groups, through: :groups_users
 
-###### groupsテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -33,7 +33,7 @@
 |user_id|integer|null: false, foreign_key: true|
 |group_user_id|integer|null: false, foreign_key: true|
 
-####### Association
+### Association
 - has_many :groups_users
 - has_many :users, throught: :groups_users
 

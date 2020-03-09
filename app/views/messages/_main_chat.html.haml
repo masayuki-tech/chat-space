@@ -1,0 +1,29 @@
+.main-contents
+  .main-contents__chat-group
+    .group-item
+      .group-name test
+      .member masa
+    = link_to "#", class: "contents__btn" do
+      .edit
+        Edit
+  .main-contents__chatmessage-list
+    .message
+      .user
+        %p.user__name masa
+        %p.user__at 2019-11-20
+      %p.message__text おはよう
+   
+    .message
+      .user
+        %p.user__name masa
+        %p.user__at 2019-11-20
+      %p.message__text おはよう
+  .main-contents__chatmessage-form
+    %form.new-message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a massage"}
+        %label{class: "input-box__image"}
+          = icon("fas", "image")
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", value: "Send", class: "submit-btn"}
+        

@@ -4,14 +4,15 @@
     
     .side-contents__sidebar-username__name-box
       
-      .side-contents__sidebar-username__name-box__user-name masa
+      .side-contents__sidebar-username__name-box__user-name 
+        = current_user.name
       %ul.icon-box
         %li.icon-box__new-group
           = link_to "#" do
             = icon("fas", "edit")
         %li.icon-box__edit-user
-          = link_to "#" do
-            = icon("fas", "cog")      
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'icon')      
   
   .side-contents__sidebar-groups
     = link_to "#" do

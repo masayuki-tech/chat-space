@@ -8,18 +8,17 @@
         = current_user.name
       %ul.icon-box
         %li.icon-box__new-group
-          = link_to "#" do
+          = link_to new_group_path do
             = icon("fas", "edit")
         %li.icon-box__edit-user
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon')      
   
   .side-contents__sidebar-groups
-    = link_to "#" do
+    - current_user.groups.each do |group|
       .side-contents__sidebar-groups__group
-        %p.side-contents__sidebar-groups__group__group-name techcamp
-        %p.side-contents__sidebar-groups__group__latest-message まだありません
-    = link_to "#" do
-      .side-contents__sidebar-groups__group
-        %p.side-contents__sidebar-groups__group__group-name techcamp
-        %p.side-contents__sidebar-groups__group__latest-message まだありません
+        = link_to edit_group_path(current_user) do
+          %p.side-contents__sidebar-groups__group__group-name 
+            = group.name
+          %p.side-contents__sidebar-groups__group__latest-message まだありません
+    

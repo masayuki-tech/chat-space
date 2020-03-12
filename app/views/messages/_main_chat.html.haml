@@ -1,9 +1,13 @@
 .main-contents
   .main-contents__chat-group
     .group-item
-      .group-name test
-      .member masa
-    = link_to "#", class: "contents__btn" do
+      .group-name
+        = @group.name
+      .member
+        - @group.users.each do |user|
+          = user.name
+          
+    = link_to edit_group_path(params[:group_id]), class: "contents__btn" do
       .edit
         Edit
   .main-contents__chatmessage-list

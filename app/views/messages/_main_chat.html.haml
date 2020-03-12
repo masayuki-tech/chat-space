@@ -1,29 +1,24 @@
 .main-contents
   .main-contents__chat-group
     .group-item
-      .group-name test
-      .member masa
-    = link_to "#", class: "contents__btn" do
+      .group-name
+        = @group.name
+      .member
+        - @group.users.each do |user|
+          = user.name
+          
+    = link_to edit_group_path(params[:group_id]), class: "contents__btn" do
       .edit
         Edit
   .main-contents__chatmessage-list
-    .message
-      .user
-        %p.user__name masa
-        %p.user__at 2019-11-20
-      %p.message__text おはよう
-   
-    .message
-      .user
-        %p.user__name masa
-        %p.user__at 2019-11-20
-      %p.message__text おはよう
+    = render @messages
+    
   .main-contents__chatmessage-form
-    %form.new-message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a massage"}
-        %label{class: "input-box__image"}
+        = f.text_field :content, class: "input-box__text", placeholder: 'type a message'
+        = f.label :image, class: "input-box__image" do
           = icon("fas", "image")
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", value: "Send", class: "submit-btn"}
+          = f.file_field :image, class: "input-box__image__file"
+      = f.submit 'Send', class: "submit-btn"
         

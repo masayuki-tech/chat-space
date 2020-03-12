@@ -17,8 +17,8 @@
   .side-contents__sidebar-groups
     - current_user.groups.each do |group|
       .side-contents__sidebar-groups__group
-        = link_to edit_group_path(current_user) do
+        = link_to group_messages_path(group) do
           %p.side-contents__sidebar-groups__group__group-name 
             = group.name
-          %p.side-contents__sidebar-groups__group__latest-message まだありません
-    
+          %p.side-contents__sidebar-groups__group__latest-message
+            = group.show_last_message 

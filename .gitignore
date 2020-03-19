@@ -19,3 +19,5 @@
 publick/uploads/*
 
 public/uploads/*
+
+config/secrets.yml

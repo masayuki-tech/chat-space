@@ -3,9 +3,11 @@
     .group-item
       .group-name
         = @group.name
-      .member
-        - @group.users.each do |user|
-          = user.name
+      .thema 
+        Member:
+        .member 
+          - @group.users.each do |user|
+            = user.name
           
     = link_to edit_group_path(params[:group_id]), class: "contents__btn" do
       .edit
